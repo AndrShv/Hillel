@@ -1,10 +1,12 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class project1 {
     public static void main(String[] args) {
-        anagram("listen", "ilents");
+        //semiNumInAr();
+        //peeknum();
+        //maxDifferent();
+        // findLongestNum();
+        //anagram("listen", "ilents");
         //semistr("level");
         //task11();
         //task10(42,18);
@@ -213,11 +215,11 @@ public class project1 {
         }
         return true;
     }
-    static void anagram(String str1, String str2){
+
+    static void anagram(String str1, String str2) {
         if (areAnagrams(str1, str2)) {
             System.out.println(str1 + " і " + str2 + " - анаграми");
-        }
-        else {
+        } else {
             System.out.println(str1 + " і " + str2 + " - не анаграми");
         }
     }
@@ -238,8 +240,144 @@ public class project1 {
         return Arrays.equals(charArray1, charArray2);
     }
 
+    static void findLongestNum() {
+        int[] array = {10, 22, 9, 33, 21, 50, 41, 60, 80};
+        int[] longestIncreasingSubsequence = findLongestIncreasingSubsequence(array);
+        System.out.println("Найбільша зростаюча послідовність: ");
+        for (int num : longestIncreasingSubsequence) {
+            System.out.print(num + " ");
+        }
+    }
 
+    static int[] findLongestIncreasingSubsequence(int[] array) {
+        if (array == null || array.length == 0) {
+            return new int[0];
+        }
+
+        int n = array.length;
+        int[] lis = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            lis[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (array[i] > array[j] && lis[i] < lis[j] + 1) {
+                    lis[i] = lis[j] + 1;
+                }
+            }
+        }
+        int maxLisIndex = 0;
+        for (int i = 1; i < n; i++) {
+            if (lis[i] > lis[maxLisIndex]) {
+                maxLisIndex = i;
+            }
+        }
+        int maxLength = lis[maxLisIndex];
+        int[] longestIncreasingSubsequence = new int[maxLength];
+        longestIncreasingSubsequence[--maxLength] = array[maxLisIndex];
+
+        for (int i = maxLisIndex - 1; i >= 0; i--) {
+            if (array[i] < array[maxLisIndex] && lis[i] == lis[maxLisIndex] - 1) {
+                longestIncreasingSubsequence[--maxLength] = array[i];
+                maxLisIndex = i;
+            }
+        }
+        return longestIncreasingSubsequence;
+    }
+
+    static void maxDifferent() {
+        int[] array = {7, 1, 5, 3, 6, 4};
+        int maxDifference = findMaxDifference(array);
+        System.out.println("Найбільша різниця між елементами: " + maxDifference);
+    }
+
+    static int findMaxDifference(int[] array) {
+
+
+        if (array == null || array.length < 2) {
+            System.out.println("Масив має недостатньо елементів");
+            return -1;
+        }
+
+        int minElement = array[0];
+        int maxDifference = 0;
+
+        for (int i = 1; i < array.length; i++) {
+            int currentElement = array[i];
+            if (currentElement < minElement) {
+                minElement = currentElement;
+            }
+            int currentDifference = currentElement - minElement;
+            if (currentDifference > maxDifference) {
+                maxDifference = currentDifference;
+            }
+        }
+        return maxDifference;
+    }
+
+
+    static void peeknum() {
+        int[] array = {1, 3, 20, 4, 1, 0};
+        int peakIndex = findPeak(array);
+        if (peakIndex != -1) {
+            System.out.println("Пік знаходиться на індексі: " + peakIndex);
+            System.out.println("Значення піка: " + array[peakIndex]);
+        } else {
+            System.out.println("Пік не знайдено у заданому масиві");
+        }
+    }
+
+    static int findPeak(int[] array) {
+        if (array == null || array.length == 0) {
+            System.out.println("Масив має недостатньо елементів");
+            return -1;
+        }
+        int left = 0;
+        int right = array.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (array[mid] > array[mid + 1]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    static void semiNumInAr() {
+        int[] array1 = {1, 2, 3, 4, 5};
+        int[] array2 = {3, 4, 5, 6, 7};
+
+        List<Integer> commonElements = findCommonElements(array1, array2);
+        if (commonElements.isEmpty()) {
+            System.out.println("Немає спільних елементів у масивах");
+        } else {
+            System.out.println("Спільні елементи у масивах: " + commonElements);
+        }
+    }
+
+
+
+        static List<Integer> findCommonElements ( int[] array1, int[] array2){
+            Set<Integer> set1 = new HashSet<>();
+            Set<Integer> commonSet = new HashSet<>();
+
+            for (int num : array1) {
+                set1.add(num);
+            }
+
+            for (int num : array2) {
+                if (set1.contains(num)) {
+                    commonSet.add(num);
+                }
+            }
+            List<Integer> commonElements = new ArrayList<>(commonSet);
+
+            return commonElements;
+    }
 }
+
+
 
 
 
