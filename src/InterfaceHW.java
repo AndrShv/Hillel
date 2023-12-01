@@ -2,6 +2,42 @@ import java.util.*;
 
 public class InterfaceHW {
     public static void main(String args[]) {
+        interface Dish {
+            void cook();
+        }
+
+        class Soup implements Dish {
+            @Override
+            public void cook() {
+                System.out.println("I cooked soup");
+            }
+        }
+
+        class Steak implements Dish {
+            @Override
+            public void cook() {
+                System.out.println("I cooked steak");
+            }
+        }
+
+        List<Dish> dishes = new ArrayList<>();
+        dishes.add(new Soup());
+        dishes.add(new Steak());
+
+        for (Dish dish : dishes) {
+            if (dish instanceof Soup) {
+                Soup soup = (Soup) dish;
+                soup.cook();
+            }
+        }
+
+        for (Dish dish : dishes) {
+            if (dish instanceof Steak) {
+                Steak steak = (Steak) dish;
+                steak.cook();
+            }
+        }
+///////////////////////////////////////////////////////////////////
 
         interface Vehicle {
             void start();
@@ -99,39 +135,7 @@ public class InterfaceHW {
             }
         }
 ////////////////////////////////////////////////////////////////////////////////
-        interface Dish {
-            void cook();
-        }
-        class soup implements Dish {
 
-            @Override
-            public void cook() {
-                System.out.println("I cooked soup");
-            }
-        }
-        class steak implements Dish {
-
-            @Override
-            public void cook() {
-                System.out.println("I cooked steak");
-            }
-        }
-        List<Dish> dishes = new ArrayList<>();
-        dishes.add(new soup());
-        dishes.add(new steak());
-        for (Dish dish:dishes) {
-            if (dishes instanceof soup){
-                soup soup = new soup();
-                soup.cook();
-            }
-        }
-        for (Dish dish:dishes) {
-            if (dishes instanceof steak){
-                steak steak = new steak();
-                steak.cook();
-            }
-
-        }
     }
 }
 
