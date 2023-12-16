@@ -1,3 +1,5 @@
+package Bob1ksProjects.com;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -53,7 +55,7 @@ class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Bob1ksCompany.com.Users{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
@@ -85,7 +87,7 @@ class RegularUser extends UserType {
 
     @Override
     public void displayUserInfo() {
-        System.out.println("Regular User Info: " + user.toString() + ", Activity Level: " + activityLevel);
+        System.out.println("Regular Bob1ksProjects.com.User Info: " + user.toString() + ", Activity Level: " + activityLevel);
     }
 }
 
@@ -99,7 +101,7 @@ class PremiumUser extends UserType {
 
     @Override
     public void displayUserInfo() {
-        System.out.println("Premium User Info: " + user.toString() + ", Premium Status: " + isPremium);
+        System.out.println("Premium Bob1ksProjects.com.User Info: " + user.toString() + ", Premium Status: " + isPremium);
     }
 }
 
