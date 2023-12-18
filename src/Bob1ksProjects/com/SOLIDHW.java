@@ -103,6 +103,7 @@ class PremiumUser extends UserType {
     public void displayUserInfo() {
         System.out.println("Premium Bob1ksProjects.com.User Info: " + user.toString() + ", Premium Status: " + isPremium);
     }
+
 }
 
 class BankAccount {
