@@ -1,5 +1,5 @@
 package DarthAnimOld;
-
+//тут
 import DarthAnimOld.Canvas;
 
 public class StartClass {

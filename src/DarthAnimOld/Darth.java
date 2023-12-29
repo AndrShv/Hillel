@@ -47,7 +47,7 @@ public class Darth extends JPanel {
         contrAnimation.start();
         currentAnimation = contrAnimation;
     }
-
+//тут
     public void attackAnim() {
         ArrayList<Point> points = new ArrayList<>();
         points.add(new Point(-5, -1010, 60, 50));

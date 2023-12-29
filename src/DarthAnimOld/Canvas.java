@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Canvas extends JFrame implements KeyListener {
-
+    //тут
     private Darth darth = new Darth();
 
     Canvas() {
