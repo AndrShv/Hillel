@@ -1,3 +1,5 @@
+package DarthAnimOld;
+
 import javax.swing.*;
 import java.awt.*;
 

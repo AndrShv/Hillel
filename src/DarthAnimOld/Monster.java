@@ -1,3 +1,5 @@
+/*package DarthAnimOld;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -6,17 +8,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Darth extends JPanel {
-    private BaseAnimation saltoAnimation;
-    private BaseAnimation attackAnimation;
+public class Monster extends JPanel {
+    private BaseAnimation attackAnimationMonst;
     private BaseAnimation standAnimation;
     private BaseAnimation currentAnimation;
-    private BaseAnimation contrAnimation;
+    private BaseAnimation runAnimation;
 
-    Darth() {
+    Monster() {
         ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(-10, -25, 66, 51));
-        points.add(new Point(-58, -25, 66, 51));
+        points.add(new Point(-20, -15, 70, 70));
+        points.add(new Point(-90, -15, 70, 70));
         standAnimation = new BaseAnimation(points, true);
         currentAnimation = standAnimation;
         currentAnimation.start();
@@ -24,44 +25,36 @@ public class Darth extends JPanel {
 
     @Override
     public int getWidth() {
-        return 50;
+        return 70;
     }
 
     @Override
     public int getHeight() {
-        return 82;
+        return 70;
     }
 
-    public void saltoAnim() {
+    public void attackAnimMonst() {
         ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(-15, -270, 65, 55));
-        points.add(new Point(-75, -270, 65, 55));
-        points.add(new Point(-135, -270, 65, 65));
-        points.add(new Point(-180, -270, 65, 65));
-        saltoAnimation = new BaseAnimation(points, false);
-        saltoAnimation.start();
-        currentAnimation = saltoAnimation;
+        points.add(new Point(-20, -220, 70, 70));
+        points.add(new Point(-110, -220, 70, 70));
+        points.add(new Point(-240, -220, 70, 70));
+        points.add(new Point(-320, -220, 70, 70));
+        attackAnimationMonst = new BaseAnimation(points, false);
+        attackAnimationMonst.start();
+        currentAnimation = attackAnimationMonst;
     }
 
-    public void contrAnim() {
+    public void runAnimation() {
         ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(-10, -130, 65, 50));
-        points.add(new Point(-55, -130, 65, 50));
-        points.add(new Point(-110, -130, 65, 65));
-        contrAnimation = new BaseAnimation(points, false);
-        contrAnimation.start();
-        currentAnimation = contrAnimation;
-    }
-
-    public void attackAnim() {
-        ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(-60, -1065, 80, 75));
-        points.add(new Point(-115, -1065, 80, 75));
-        points.add(new Point(-200, -1065, 80, 75));
-        points.add(new Point(-290, -1065, 80, 75));
-        attackAnimation = new BaseAnimation(points, false);
-        attackAnimation.start();
-        currentAnimation = attackAnimation;
+        points.add(new Point(-25, -80, 70, 70));
+        points.add(new Point(-105, -80, 70, 70));
+        points.add(new Point(-185, -80, 70, 70));
+        points.add(new Point(-265, -80, 70, 70));
+        points.add(new Point(-345, -80, 70, 70));
+        points.add(new Point(-425, -80, 70, 70));
+        runAnimation = new BaseAnimation(points, false);
+        runAnimation.start();
+        currentAnimation = runAnimation;
     }
 
     public void standAnimation() {
@@ -73,7 +66,7 @@ public class Darth extends JPanel {
         super.paintComponent(g);
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new File("Vader.png"));
+            image = ImageIO.read(new File("AngryMonster.png"));
             setSize(currentAnimation.getW(), currentAnimation.getH());
             g.drawImage(image, currentAnimation.getX(), currentAnimation.getY(), null);
         } catch (IOException e) {
@@ -142,3 +135,5 @@ public class Darth extends JPanel {
         }
     }
 }
+
+ */

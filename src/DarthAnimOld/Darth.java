@@ -1,3 +1,5 @@
+package DarthAnimOld;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -6,16 +8,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Monster extends JPanel {
-    private BaseAnimation attackAnimationMonst;
+public class Darth extends JPanel {
+    private BaseAnimation attackAnimation;
     private BaseAnimation standAnimation;
     private BaseAnimation currentAnimation;
-    private BaseAnimation runAnimation;
+    private BaseAnimation contrAnimation;
 
-    Monster() {
+
+    Darth() {
         ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(-20, -15, 70, 70));
-        points.add(new Point(-90, -15, 70, 70));
+        points.add(new Point(-10, -640, 65, 50));
+        points.add(new Point(-60, -640, 65, 50));
         standAnimation = new BaseAnimation(points, true);
         currentAnimation = standAnimation;
         currentAnimation.start();
@@ -23,36 +26,39 @@ public class Monster extends JPanel {
 
     @Override
     public int getWidth() {
-        return 70;
+        return 35;
     }
 
     @Override
     public int getHeight() {
-        return 70;
+        return 50;
     }
 
-    public void attackAnimMonst() {
+
+
+    public void contrAnim() {
         ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(-20, -220, 70, 70));
-        points.add(new Point(-110, -220, 70, 70));
-        points.add(new Point(-240, -220, 70, 70));
-        points.add(new Point(-320, -220, 70, 70));
-        attackAnimationMonst = new BaseAnimation(points, false);
-        attackAnimationMonst.start();
-        currentAnimation = attackAnimationMonst;
+        points.add(new Point(-5, -275, 60, 50));
+        points.add(new Point(-55, -275, 60, 50));
+        points.add(new Point(-110, -275, 60, 50));
+        points.add(new Point(-145, -275, 60, 50));
+        points.add(new Point(-180, -275, 60, 50));
+        contrAnimation = new BaseAnimation(points, false);
+        contrAnimation.start();
+        currentAnimation = contrAnimation;
     }
 
-    public void runAnimation() {
+    public void attackAnim() {
         ArrayList<Point> points = new ArrayList<>();
-        points.add(new Point(-25, -80, 70, 70));
-        points.add(new Point(-105, -80, 70, 70));
-        points.add(new Point(-185, -80, 70, 70));
-        points.add(new Point(-265, -80, 70, 70));
-        points.add(new Point(-345, -80, 70, 70));
-        points.add(new Point(-425, -80, 70, 70));
-        runAnimation = new BaseAnimation(points, false);
-        runAnimation.start();
-        currentAnimation = runAnimation;
+        points.add(new Point(-5, -1010, 60, 50));
+        points.add(new Point(-55, -1010, 60, 50));
+        points.add(new Point(-110, -1010, 60, 50));
+        points.add(new Point(-145, -1010, 60, 50));
+        points.add(new Point(-180, -1010, 60, 50));
+        points.add(new Point(-230, -1010, 60, 50));
+        attackAnimation = new BaseAnimation(points, false);
+        attackAnimation.start();
+        currentAnimation = attackAnimation;
     }
 
     public void standAnimation() {
@@ -64,7 +70,7 @@ public class Monster extends JPanel {
         super.paintComponent(g);
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new File("AngryMonster.png"));
+            image = ImageIO.read(new File("DarthBlue.jpg"));
             setSize(currentAnimation.getW(), currentAnimation.getH());
             g.drawImage(image, currentAnimation.getX(), currentAnimation.getY(), null);
         } catch (IOException e) {
@@ -97,7 +103,7 @@ public class Monster extends JPanel {
                 if (i == points.size()) {
                     i = 0;
                     if (!isAllTime) {
-                        standAnimation();
+                        SwingUtilities.invokeLater(() -> standAnimation());
                         return;
                     }
                 }
@@ -111,7 +117,7 @@ public class Monster extends JPanel {
                     e.printStackTrace();
                 }
 
-                repaint();
+                SwingUtilities.invokeLater(() -> repaint());
                 i++;
             }
         }

@@ -1,8 +1,9 @@
+package DarthAnimOld;
 
 public class Point {
     private final int x;
     private final int y;
-    private  final int h;
+    private final int h;
     private final int w;
 
     public Point(int x, int y, int h, int w) {
@@ -28,4 +29,3 @@ public class Point {
         return w;
     }
 }
-
