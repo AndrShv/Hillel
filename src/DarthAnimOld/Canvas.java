@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Canvas extends JFrame implements KeyListener {
-    //тут
     private Darth darth = new Darth();
 
     Canvas() {
@@ -43,6 +42,9 @@ public class Canvas extends JFrame implements KeyListener {
                 break;
             case KeyEvent.VK_NUMPAD2:
                 new Thread(() -> darth.contrAnim()).start();
+                break;
+            case KeyEvent.VK_NUMPAD4:
+                new Thread(() -> darth.jump()).start();
                 break;
             case KeyEvent.VK_ESCAPE:
                 EndGameWindow endGameWindow = new EndGameWindow(50);

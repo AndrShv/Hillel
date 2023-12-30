@@ -13,6 +13,7 @@ public class Darth extends JPanel {
     private BaseAnimation standAnimation;
     private BaseAnimation currentAnimation;
     private BaseAnimation contrAnimation;
+    private BaseAnimation jumpAnimation;
 
 
     Darth() {
@@ -47,7 +48,22 @@ public class Darth extends JPanel {
         contrAnimation.start();
         currentAnimation = contrAnimation;
     }
-//тут
+      public void jump() {
+          ArrayList<Point> points = new ArrayList<>();
+          points.add(new Point(-5, -830, 60, 50));
+          points.add(new Point(-55, -830, 60, 50));
+          points.add(new Point(-105, -830, 60, 50));
+          points.add(new Point(-150, -830, 60, 50));
+          points.add(new Point(-195, -830, 60, 50));
+          points.add(new Point(-235, -830, 60, 50));
+          points.add(new Point(-280, -830, 60, 50));
+          points.add(new Point(-320, -830, 60, 50));
+          jumpAnimation = new BaseAnimation(points, false);
+          jumpAnimation.start();
+          currentAnimation = jumpAnimation;
+
+
+    }
     public void attackAnim() {
         ArrayList<Point> points = new ArrayList<>();
         points.add(new Point(-5, -1010, 60, 50));

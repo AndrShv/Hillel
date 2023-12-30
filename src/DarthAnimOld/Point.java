@@ -5,7 +5,6 @@ public class Point {
     private final int y;
     private final int h;
     private final int w;
-    //тут
 
     public Point(int x, int y, int h, int w) {
         this.x = x;
