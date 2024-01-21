@@ -48,6 +48,7 @@ public class NumberList {
                 .average()
                 .orElse(0);
         System.out.println("Середнє арифметичне: " + average);
+
     }
 
 

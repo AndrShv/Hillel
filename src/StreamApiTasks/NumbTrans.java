@@ -25,5 +25,6 @@ public class NumbTrans {
                 .mapToInt(romanNumerals::get)
                 .reduce((a, b) -> a < b ? b - a : a + b)
                 .orElse(0);
+
     }
 }
