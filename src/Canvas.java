@@ -42,7 +42,6 @@ public class Canvas extends JFrame implements KeyListener {
             case KeyEvent.VK_LEFT:
                 darth.setLocation(darth.getX() - moveDistance, darth.getY());
                 break;
-            // Handle movement for the Monster
             case KeyEvent.VK_W:
                 monster.setLocation(monster.getX(), monster.getY() - moveDistance);
                 break;
